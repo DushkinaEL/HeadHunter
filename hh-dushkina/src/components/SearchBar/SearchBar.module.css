@@ -1,0 +1,45 @@
+.searchBar {
+  width: 508px;
+  color: var(--mantine-color-secondary-4, #0F0F104D);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.input {
+  width: 403px;
+  height: 42px;
+  background: var(--mantine-color-secondary-1, #F6F6F7);
+}
+
+.inputField {
+  height: 42px;
+  font-size: 16px;
+  border-radius: 8px;
+  padding-left: 40px;
+  padding-right: 16px;
+  background: var(--mantine-color-secondary-1, #F6F6F7);
+  border: 1px solid var(--mantine-color-secondary-3,#0F0F1033);
+  color: var(--mantine-color-secondary-9, #0F0F10);
+}
+
+.button {
+  width: 93px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 1px 22px;
+  background: var(--mantine-color-primary-7, #4263EB);
+  color: var(--mantine-color-secondary-0, #fff);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background: var(--mantine-color-primary-8, #364FC7);
+}

@@ -1,0 +1,72 @@
+.root {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: var(--mantine-color-secondary-1, #F8F9FB); 
+  padding-bottom: 84px;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  color: var(--mantine-color-secondary-9, #0F0F10);
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--mantine-color-secondary-5, #0F0F1080); 
+  margin-top: -4px;
+  line-height: 1.1;
+}
+
+.divider {
+  width: 100vw;
+  opacity: 0.2;
+  margin-left: calc(-50vw + 50%);
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--mantine-color-secondary-3, #0F0F1033);
+}
+
+.mainRow {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.filtersCol {
+  min-width: 317px;
+  max-width: 317px;
+}
+
+.cityBox {
+  margin-top: 20px;
+}
+
+.vacancyCol {
+  flex: 1;
+}
+
+.paginationBox {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

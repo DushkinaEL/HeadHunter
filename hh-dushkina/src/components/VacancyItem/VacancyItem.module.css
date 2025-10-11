@@ -1,0 +1,102 @@
+.card {
+  margin-bottom: 16px;
+  width: 700px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--mantine-color-primary-7, #4263EB);
+  margin-bottom: 0;
+}
+
+.salaryExp {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.salary {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.experience {
+  font-size: 14px;
+  color: var(--mantine-color-secondary-5, #0F0F1080);
+}
+
+.company {
+  font-size: 14px;
+  color: var(--mantine-color-secondary-5, #0F0F1080);
+  margin-top: 16px;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.badgeRemote {
+  background: var(--mantine-color-primary-7, #4263EB);
+  color: var(--mantine-color-secondary-0, #fff);
+}
+
+.badgeOffice {
+  background: var(--mantine-color-secondary-2, #0F0F101A);
+  color: var(--mantine-color-secondary-5, #0F0F1080);
+}
+
+.badgeHybrid {
+  background: var(--mantine-color-secondary-9, #0F0F10);
+  color: var(--mantine-color-secondary-0, #fff);
+}
+
+.location {
+  font-size: 16px;
+  color: var(--mantine-color-secondary-9, #0F0F10);
+  margin-top: 4px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.buttonMain {
+  width: 185px;
+  height: 36px;
+  border-radius: 4px;
+  background: var(--mantine-color-secondary-9, #0F0F10);
+  color: var(--mantine-color-secondary-0, #fff);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 1px 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonAlt {
+  width: 130px;
+  height: 36px;
+  border-radius: 4px;
+  background: var(--mantine-color-secondary-2, #0F0F101A);
+  color: var(--mantine-color-secondary-9, #0F0F10);
+  font-weight: 500;
+  font-size: 15px;
+
+  padding: 1px 18px;
+  
+  border: none;
+  cursor: pointer;
+}

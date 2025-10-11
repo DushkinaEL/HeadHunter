@@ -1,0 +1,23 @@
+.listContainer {
+  width: 659px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty {
+  width: 100%;
+  min-height: 200px;
+  background: var(--mantine-color-secondary-0, #fff);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mantine-color-secondary-9, #0F0F10); 
+}
+
+.error {
+  color: var(--mantine-color-primary-8, #364FC7);
+}
