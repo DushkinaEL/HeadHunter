@@ -8,10 +8,13 @@
 }
 
 .title {
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
   margin-bottom: 12px;
   color: var(--mantine-color-secondary-9, #0F0F10);
+line-height: 20px;
+letter-spacing: 0%;
+
 }
 
 .inputGroup {
@@ -26,7 +29,10 @@
 }
 
 .inputField {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0%;
   padding: 9px 12px;
   border: 1px solid var(--mantine-color-secondary-3,#0F0F1033);
   border-radius: 8px;
@@ -62,7 +68,10 @@
 .pill {
   background: var(--mantine-color-secondary-1, #F6F6F7);
   color: var(--mantine-color-secondary-9, #0F0F10);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
   border-radius: 16px;
   display: flex;
   align-items: center;

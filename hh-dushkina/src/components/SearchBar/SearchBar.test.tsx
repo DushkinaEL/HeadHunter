@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { SearchBar } from '../components';
+import { SearchBar } from '..';
 import { describe, it, vi, expect } from 'vitest';
-import { MantineTestWrapper } from './test-utils';
+import { MantineTestWrapper } from '../../__test__/test-utils';
 
 describe('SearchBar', () => {
   it('calls onSearch when button clicked', () => {

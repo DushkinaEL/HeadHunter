@@ -11,11 +11,15 @@
   border: 1px solid var(--mantine-color-secondary-3,#0F0F1033);
   background: var(--mantine-color-secondary-1, #F6F6F7);
   color: var(--mantine-color-secondary-9, #0F0F10);
-  font-weight: 500;
-  font-size: 16px;
   box-shadow: none;
   transition: border-color 0.2s, background 0.2s, color 0.2s;
   cursor: pointer;
+font-weight: 400;
+font-size: 16px;
+line-height: 32px;
+letter-spacing: 0%;
+text-align: center;
+
 }
 
 .control:hover,

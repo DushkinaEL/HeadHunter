@@ -1,5 +1,5 @@
 import { Card, Group, Text, Badge, Button, Stack } from '@mantine/core';
-import type { Vacancy } from '../../reducers/vacanciesTypes';
+import type { Vacancy } from '../../store/reducers/vacanciesTypes';
 import styles from './VacancyItem.module.css';
 
 type Props = {

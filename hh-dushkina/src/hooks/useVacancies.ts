@@ -6,9 +6,9 @@ import {
   addSkill,
   removeSkill,
   setPage,
-} from '../reducers/vacanciesSlice';
+} from '../store/reducers/vacanciesSlice';
 import { useCallback, useEffect } from 'react';
-import { fetchVacancies } from '../reducers/vacanciesThunk';
+import { fetchVacancies } from '../store/reducers/vacanciesThunk';
 
 
 export function useVacancies() {

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { SkillsFilter } from '../components';
+import { SkillsFilter } from '..';
 import { describe, it, vi, expect } from 'vitest';
-import { MantineTestWrapper } from './test-utils';
+import { MantineTestWrapper } from '../../__test__/test-utils';
 
 describe('SkillsFilter', () => {
   it('adds skill', () => {

@@ -21,13 +21,16 @@
   background: var(--mantine-color-secondary-1, #F6F6F7);
   border: 1px solid var(--mantine-color-secondary-3,#0F0F1033);
   color: var(--mantine-color-secondary-9, #0F0F10);
+  font-weight: 400;
+line-height: 40px;
+letter-spacing: 0%;
 }
 
 .button {
   width: 93px;
   height: 42px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   padding: 1px 22px;
   background: var(--mantine-color-primary-7, #4263EB);
   color: var(--mantine-color-secondary-0, #fff);
@@ -38,6 +41,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 40px;
+  letter-spacing: 0%;
 }
 
 .button:hover {

@@ -22,11 +22,14 @@
 
 
 .title {
-  font-size: 40px;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 8px;
   color: var(--mantine-color-secondary-9, #0F0F10);
+font-size: 26px;
+line-height: 135%;
+letter-spacing: 0%;
+
 }
 
 .subtitle {
@@ -35,6 +38,9 @@
   color: var(--mantine-color-secondary-5, #0F0F1080); 
   margin-top: -4px;
   line-height: 1.1;
+line-height: 135%;
+letter-spacing: 0%;
+
 }
 
 .divider {

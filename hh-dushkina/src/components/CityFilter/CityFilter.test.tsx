@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { CityFilter } from '../components';
+import { CityFilter } from '..';
 import { describe, it, vi, expect } from 'vitest';
-import { MantineTestWrapper } from './test-utils';
+import { MantineTestWrapper } from '../../__test__/test-utils';
 
 describe('CityFilter', () => {
   it('selects city', () => {

@@ -30,5 +30,5 @@ export const mantineTheme: MantineThemeOverride = {
   
   },
   primaryColor: 'primary',
-  fontFamily: 'Inter, Arial, sans-serif',
+  fontFamily: '"Open Sans", Arial, sans-serif',
 };

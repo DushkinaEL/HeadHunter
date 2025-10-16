@@ -1,4 +1,4 @@
-import type { Vacancy } from '../../reducers/vacanciesTypes';
+import type { Vacancy } from '../../store/reducers/vacanciesTypes';
 import { VacancyItem } from '../VacancyItem/VacancyItem';
 import { Stack, Box } from '@mantine/core';
 import styles from './VacancyList.module.css';

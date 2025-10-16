@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { VacancyList } from '../components';
+import { VacancyList } from '..';
 import { describe, it, expect } from 'vitest';
-import { MantineTestWrapper } from './test-utils';
+import { MantineTestWrapper } from '../../__test__/test-utils';
 
 const vacancy = {
   id: '1',

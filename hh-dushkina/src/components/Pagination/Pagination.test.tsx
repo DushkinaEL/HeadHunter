@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Pagination } from '../components';
+import { Pagination } from '..';
 import { describe, it, vi, expect } from 'vitest';
-import { MantineTestWrapper } from './test-utils';
+import { MantineTestWrapper } from '../../__test__/test-utils';
 
 describe('Pagination', () => {
   it('calls onChange on page click', () => {

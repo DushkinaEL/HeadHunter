@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import vacanciesReducer from '../reducers/vacanciesSlice';
+import vacanciesReducer from './reducers/vacanciesSlice';
 
 export const store = configureStore({
   reducer: {
