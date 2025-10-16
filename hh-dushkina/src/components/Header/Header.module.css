@@ -22,7 +22,6 @@
 }
 
 .brand {
-  font-weight: 600;
   font-size: 16px;
   color: var(--mantine-color-secondary-9, #0F0F10);
   font-family: var(--mantine-font-family,"Open-Sans", sans-serif);
