@@ -15,13 +15,18 @@ export function useVacancies() {
   const dispatch = useDispatch<AppDispatch>(); 
   const vacancies = useSelector((state: RootState) => state.vacancies);
 
-  useEffect(() => {
-    dispatch(fetchVacancies());
-  }, [vacancies.filters, vacancies.currentPage, dispatch]);
-    const fetchVacanciesManually = useCallback(() => {
+
+  const { text, area, skills } = vacancies.filters;
+  const { currentPage } = vacancies;
+  const skillsDeps = JSON.stringify(skills);
+
+useEffect(() => {
+  dispatch(fetchVacancies());
+}, [text, area, skillsDeps, currentPage, dispatch]);
+
+  const fetchVacanciesManually = useCallback(() => {
     dispatch(fetchVacancies());
   }, [dispatch]);
-
 
   return {
     ...vacancies,

@@ -6,14 +6,15 @@ export const fetchVacancies = createAsyncThunk(
   'vacancies/fetchVacancies',
   async (_, { getState }) => {
     const state = getState() as { vacancies: VacanciesState };
-    const { text, area } = state.vacancies.filters;
+    const { text, area, skills } = state.vacancies.filters;
     const currentPage = state.vacancies.currentPage;
+    const queryText = [text, ...skills].join(" ");
 
     const params = new URLSearchParams({
       industry: '7',
       professional_role: '96',
       per_page: '10',
-      text,
+      text: queryText,
       page: currentPage.toString(),
     });
     if (area) params.append('area', area);

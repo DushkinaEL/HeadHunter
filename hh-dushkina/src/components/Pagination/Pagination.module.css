@@ -1,40 +1,11 @@
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 32px;
-}
-
-.control {
-  height: 32px;
-  min-width: 32px;
-  border-radius: 4px;
-  border: 1px solid var(--mantine-color-secondary-3,#0F0F1033);
-  background: var(--mantine-color-secondary-1, #F6F6F7);
-  color: var(--mantine-color-secondary-9, #0F0F10);
-  box-shadow: none;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
-  cursor: pointer;
-font-weight: 400;
-font-size: 16px;
-line-height: 32px;
-letter-spacing: 0%;
-text-align: center;
+  margin-top: 24px;
+    font-family: var(--mantine-font-family,"Open-Sans", sans-serif);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
 
 }
 
-.control:hover,
-.control:focus {
-  border: 1px solid var(--mantine-color-primary-7, #4263EB) !important;
-  color: var(--mantine-color-primary-7, #4263EB) !important;
-  background: #F3F5F9 !important;
-}
-
-.control[data-active] {
-  background: var(--mantine-color-primary-7, #4263EB) !important;
-  color: #fff !important;
-  border: 1px solid var(--mantine-color-primary-7, #4263EB) !important;
-}
-
-.dots {
-  min-width: 32px;
-}

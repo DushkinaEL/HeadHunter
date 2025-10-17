@@ -60,19 +60,20 @@ const vacanciesSlice = createSlice({
       .addCase(fetchVacancies.fulfilled, (state, action) => {
         state.loading = false;
 
- 
-const selectedSkills = state.filters.skills.map(s => s.trim().toLowerCase());
-let items = action.payload.items as Vacancy[];
+         const selectedSkills = state.filters.skills.map(s => s.trim().toLowerCase());
+        let items = action.payload.items as Vacancy[];
 
-if (selectedSkills.length > 0) {
-  items = items.filter(vacancy => {
-    const req = vacancy.snippet?.requirement?.toLowerCase();
-    if (!req) return false;
-    return selectedSkills.every(skill => req.includes(skill));
-  });
-}
-state.items = items;
-        state.totalPages = Math.ceil(action.payload.found / 10);
+        if (selectedSkills.length > 0) {
+          items = items.filter(vacancy => {
+            const req = vacancy.snippet?.requirement?.toLowerCase();
+            if (!req) return false;
+            return selectedSkills.every(skill => req.includes(skill));
+          });
+        }
+        state.items = items;
+
+    const realTotalPages = Math.ceil(action.payload.found / 10);
+        state.totalPages = Math.min(realTotalPages, 10);
       })
       .addCase(fetchVacancies.rejected, (state, action) => {
         state.loading = false;
