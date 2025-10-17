@@ -8,7 +8,7 @@ export const mantineTheme: MantineThemeOverride = {
       '#D2D9F7', // 1
       '#B9C3F2', // 2
       '#A0ADEE', // 3
-      '#8596EA', // 4
+      '#228BE6', //4 blue button add
       '#6B80E6', // 5
       '#526AE2', // 6
       '#4263EB', // 7 - основной (Primary)

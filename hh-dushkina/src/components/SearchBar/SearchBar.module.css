@@ -41,8 +41,7 @@ letter-spacing: 0%;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 40px;
-  letter-spacing: 0%;
+  
 }
 
 .button:hover {
