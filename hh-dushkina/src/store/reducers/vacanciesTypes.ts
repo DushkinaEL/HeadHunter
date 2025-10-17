@@ -16,6 +16,7 @@ export type Vacancy = {
   };
   employer: {
     name: string;
+    description?: string;
   };
   area: {
     name: string;
@@ -27,4 +28,7 @@ export type Vacancy = {
     responsibility?: string;
   };
   alternate_url: string;
+
+  description?:string;
+
 };

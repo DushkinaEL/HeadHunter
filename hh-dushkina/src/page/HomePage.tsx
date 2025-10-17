@@ -3,9 +3,13 @@ import { Header, SearchBar, CityFilter , SkillsFilter,VacancyList, CustomPaginat
 
 import { useVacancies } from '../hooks/useVacancies';
 import styles from './HomePage.module.css';
+import { useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
 
 
 export default function HomePage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const {
     items,
     loading,
@@ -20,6 +24,29 @@ export default function HomePage() {
     totalPages,
     fetchVacancies,
   } = useVacancies();
+
+  useEffect(() => {
+    const urlText = searchParams.get("text") || "";
+    const urlArea = searchParams.get("area") || "";
+    const urlSkills = searchParams.get("skills")?.split(",").filter(Boolean) || [];
+
+    if (urlText !== filters.text) setText(urlText);
+    if (urlArea !== filters.area) setArea(urlArea);
+
+    if (JSON.stringify(urlSkills) !== JSON.stringify(filters.skills)) {
+      filters.skills.forEach(s => removeSkill(s));
+      urlSkills.forEach(s => addSkill(s));
+    }
+  // eslint-disable-next-line
+  }, [searchParams]);
+
+  useEffect(() => {
+    setSearchParams({
+      text: filters.text,
+      area: filters.area,
+      skills: filters.skills.join(","),
+    });
+  }, [filters.text, filters.area, filters.skills, setSearchParams]);
 
   return (
     <Box className={styles.root}>

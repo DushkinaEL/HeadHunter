@@ -109,3 +109,17 @@ text-transform: uppercase;
   border: none;
   cursor: pointer;
 }
+.buttonMainBlack {
+  width: 200px;
+  height: 36px;
+  border-radius: 6px;
+  background: var(--mantine-color-secondary-9, #0F0F10);
+  color: var(--mantine-color-secondary-0, #fff);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 34px;
+  padding: 1px 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+}

@@ -1,17 +1,18 @@
 import { Card, Group, Text, Badge, Button, Stack } from '@mantine/core';
 import type { Vacancy } from '../../store/reducers/vacanciesTypes';
-import styles from './VacancyItem.module.css';
-import { useNavigate } from "react-router-dom";
+import styles from '../VacancyItem/VacancyItem.module.css';
 
 type Props = {
   vacancy: Vacancy;
+  showShowButton?: boolean;
+  onShow?: () => void;
+    applyButtonText?: string; 
+  applyButtonClassName?: string; 
 };
 
 function formatSalary(value?: number | null): string {
   if (typeof value !== 'number') return '—';
-  return value
-    .toLocaleString('ru-RU')
-    .replace(/\u00A0/g, ' ');
+  return value.toLocaleString('ru-RU').replace(/\u00A0/g, ' ');
 }
 
 function getSalaryRange(salary?: { from?: number | null, to?: number | null }): string {
@@ -30,17 +31,15 @@ function getSalaryRange(salary?: { from?: number | null, to?: number | null }): 
   return '—';
 }
 
-export function VacancyItem({ vacancy }: Props) {
+export function VacancyCard({ vacancy,
+  showShowButton = false,
+  onShow,
+  applyButtonText = "Откликнуться",
+  applyButtonClassName = styles.buttonAlt, }: Props) {
   const experience = vacancy.experience?.name ?? '—';
   const remote = vacancy.schedule?.id === 'remote' || vacancy.schedule?.name?.toLowerCase().includes('удал');
   const office = vacancy.schedule?.id === 'fullDay' || vacancy.schedule?.name?.toLowerCase().includes('офис');
   const hybrid = vacancy.schedule?.name?.toLowerCase().includes('гибрид');
-
-  const navigate = useNavigate();
-
-  const handleGoToVacancy = () => {
-    navigate(`/vacancies/${vacancy.id}`);
-  };
 
   return (
     <Card shadow="sm" padding={24} radius={12} className={styles.card}>
@@ -70,17 +69,19 @@ export function VacancyItem({ vacancy }: Props) {
           {vacancy.area?.name ?? '—'}
         </Text>
         <Group className={styles.buttons}>
-          <Button className={styles.buttonMain} onClick={handleGoToVacancy}>
-            Смотреть вакансию
-          </Button>
+          {showShowButton && (
+            <Button className={styles.buttonMain} onClick={onShow}>
+              Смотреть вакансию
+            </Button>
+          )}
           <Button
-            className={styles.buttonAlt}
+            className={applyButtonClassName}
             component="a"
             href={vacancy.alternate_url}
             target="_blank"
             rel="noopener noreferrer"
-            >
-          Откликнуться
+          >
+            {applyButtonText}
           </Button>
         </Group>
       </Stack>
