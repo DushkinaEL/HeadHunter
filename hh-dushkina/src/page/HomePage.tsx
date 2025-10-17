@@ -1,8 +1,9 @@
 import { Title, Group, Box, Text, Divider,  } from '@mantine/core';
-import { Header, SearchBar, CityFilter , SkillsFilter,VacancyList, Pagination, } from '../components';
+import { Header, SearchBar, CityFilter , SkillsFilter,VacancyList, CustomPagination } from '../components';
 
 import { useVacancies } from '../hooks/useVacancies';
 import styles from './HomePage.module.css';
+
 
 export default function HomePage() {
   const {
@@ -61,7 +62,7 @@ export default function HomePage() {
               error={error}
             />
             <Box className={styles.paginationBox}>
-              <Pagination
+              <CustomPagination
                 page={currentPage}
                 total={totalPages}
                 onChange={setPage}

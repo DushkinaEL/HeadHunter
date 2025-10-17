@@ -1,28 +1,21 @@
-import { Pagination as MantinePagination } from '@mantine/core';
-import styles from './Pagination.module.css';
+import { Group, Pagination } from '@mantine/core';
 
 type Props = {
   page: number;
   total: number;
-  onChange: (p: number) => void;
+  onChange: (page: number) => void;
 };
 
-export function Pagination({ page, total, onChange }: Props) {
+export function CustomPagination({ page, onChange }: Props) {
   return (
-    <div className={styles.pagination}>
-      <MantinePagination
-        value={page}
-        onChange={onChange}
-        total={total}
-        size="md"
-        radius="xs"
-        withEdges
-        withControls
-        classNames={{
-          control: styles.control,
-          dots: styles.dots,
-        }}
-      />
-    </div>
+    <Pagination.Root total={10} value={page} onChange={onChange}>
+      <Group gap={5} justify="center">
+        <Pagination.First />
+        <Pagination.Previous />
+        <Pagination.Items />
+        <Pagination.Next />
+        <Pagination.Last />
+      </Group>
+    </Pagination.Root>
   );
 }
