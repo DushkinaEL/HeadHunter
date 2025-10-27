@@ -2,13 +2,12 @@ import { MantineProvider } from '@mantine/core';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { mantineTheme } from './theme/mantineTheme';
-import HomePage from './page/HomePage';
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/500.css";
 import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { VacancyPage } from './page/VacancyPage/VacancyPage';
+import { VacancyPage, HomePage } from './page';
 
 function App() {
   return (

@@ -1,0 +1,23 @@
+
+.container {
+  margin-top: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+
+.infoCard {
+  background: #fff;
+  padding: 32px;
+  box-sizing: border-box;
+}

@@ -5,14 +5,14 @@ import {
   Loader,
   Stack,
   Text,
-  Container,
   Box,
+  Container,
 } from "@mantine/core";
 import type { Vacancy } from "../../store/reducers/vacanciesTypes";
-import { Header } from "../../components";
-import styles from '../HomePage.module.css';
-import vacancyCardStyles from "../../components/VacancyItem/VacancyItem.module.css"
-import { VacancyCard } from "../../components/VacancyCard/VacancyCard";
+import {  VacancyItem } from "../../components";
+import styles from '../../shared/RespondButton/RespondButton.module.css';
+import {PageContainer} from "../../shared";
+import pageStyles from "./VacancyPage.module.css";
 
 
 export function VacancyPage() {
@@ -31,28 +31,22 @@ export function VacancyPage() {
   }, [id]);
 
   if (loading) return (
-    <Box style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "60vh",
-        width: "100vw"}}>
-      <Loader color="blue" size="lg" />
-    </Box>)
+   <Box className={pageStyles.loaderWrapper}>
+        <Loader color="blue" size="lg" />
+      </Box>)
   if (!vacancy) return <Text ta="center" mt="xl">Вакансия не найдена</Text>;
   return (
-    <Box className={styles.root}>
-        <Header/>
-      <Container size="sm" mt={24}>
-        <Stack gap={24}>
-          <VacancyCard
-  vacancy={vacancy}
-  showShowButton={false}
-  applyButtonText="Откликнуться на hh.ru"
-  applyButtonClassName={vacancyCardStyles.buttonMainBlack}
-/>
+    <PageContainer>
+      <Container size='sm' mt={24}className={pageStyles.container}>
+        <Stack gap={24} >
+          <VacancyItem
+            vacancy={vacancy}
+            applyButtonClassName={styles.buttonMainBlack}
+            showViewButton={false}
+            applyButtonText="Откликнуться на hh.ru"
+          />
 
-          <Card withBorder radius={16} style={{ background: "#fff", padding: 32 }}>
+          <Card withBorder radius={16} className={pageStyles.infoCard}>
             <Text fw={700} fz={18} mb={10}>
               Компания
             </Text>
@@ -71,7 +65,7 @@ export function VacancyPage() {
             </Text>
           </Card>
         </Stack>
-      </Container>
-    </Box>
+        </Container>
+      </PageContainer>
   );
 }

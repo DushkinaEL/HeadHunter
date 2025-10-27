@@ -1,13 +1,13 @@
 import { Title, Group, Box, Text, Divider,  } from '@mantine/core';
-import { Header, SearchBar, CityFilter , SkillsFilter,VacancyList, CustomPagination } from '../components';
-
-import { useVacancies } from '../hooks/useVacancies';
+import {  SearchBar, CityFilter , SkillsFilter,VacancyList, CustomPagination } from '../../components';
+import { useVacancies } from '../../hooks/useVacancies';
 import styles from './HomePage.module.css';
 import { useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
+import {PageContainer} from '../../shared/';
 
 
-export default function HomePage() {
+export  function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const {
@@ -49,9 +49,7 @@ export default function HomePage() {
   }, [filters.text, filters.area, filters.skills, setSearchParams]);
 
   return (
-    <Box className={styles.root}>
-      <Header />
-      <Box className={styles.content}>
+    <PageContainer>
         <Group className={styles.headerRow}>
           <Box className={styles.titleBlock}>
             <Title order={2} className={styles.title}>
@@ -97,7 +95,6 @@ export default function HomePage() {
             </Box>
           </Box>
         </Box>
-      </Box>
-    </Box>
+        </PageContainer>
   );
 }
