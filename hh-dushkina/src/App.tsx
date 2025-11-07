@@ -6,10 +6,10 @@ import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/500.css";
 import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
-import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
+import { createHashRouter, redirect, RouterProvider } from 'react-router-dom';
 import { VacancyPage, HomePage, ErrorPage, TabCityLayout, VacanciesListPage, vacanciesLoader,  } from './page';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <HomePage />,
