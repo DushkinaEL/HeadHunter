@@ -6,23 +6,48 @@ import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/500.css";
 import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { VacancyPage, HomePage } from './page';
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
+import { VacancyPage, HomePage, ErrorPage, TabCityLayout, VacanciesListPage, vacanciesLoader,  } from './page';
 
-function App() {
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/vacancies",
+    element: <TabCityLayout />, 
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, loader: async () => redirect("/vacancies/moscow") },
+      {
+        path: ":city",
+        element: <VacanciesListPage />,
+        loader: vacanciesLoader,
+        errorElement: <ErrorPage />,
+      },
+    ],
+  },
+
+  {
+    path: "/vacancies/:id",
+    element: <VacancyPage />,
+    errorElement: <ErrorPage />,
+  },
+
+  {
+    path: "*",
+    element: <ErrorPage />,
+  },
+]);
+
+export default function App() {
   return (
-    <BrowserRouter basename="/HeadHunter">
     <MantineProvider theme={mantineTheme}>
       <Provider store={store}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/vacancies" element={<HomePage />} />
-          <Route path="/vacancies/:id" element={<VacancyPage />} />
-        </Routes>
+        <RouterProvider router={router} />
       </Provider>
     </MantineProvider>
-    </BrowserRouter>
   );
 }
-
-export default App;

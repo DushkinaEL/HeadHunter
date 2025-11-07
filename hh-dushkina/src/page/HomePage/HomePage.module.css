@@ -1,5 +1,4 @@
 
-
 .headerRow {
   display: flex;
   align-items: center;
@@ -7,8 +6,6 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
-
-
 
 .title {
   font-weight: 700;
@@ -51,12 +48,20 @@ letter-spacing: 0%;
   max-width: 317px;
 }
 
-.cityBox {
-  margin-top: 20px;
+.contentInner {
+  padding: 0 var(--container-padding-desktop);
+  box-sizing: border-box;
+  width: 100%;
 }
 
+.tabsRow {
+  margin-bottom: 18px;
+  display: block;
+}
 .vacancyCol {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .paginationBox {

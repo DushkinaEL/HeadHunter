@@ -1,0 +1,58 @@
+.tabList {
+  display: inline-flex;
+  gap: 7px;
+  padding-bottom: 10px; 
+  align-items: center;
+  list-style: none;
+  margin-bottom: 14px;
+}
+
+.tab {
+  position: relative;
+  padding: 10px;   
+  font-weight: 400;
+  font-size: 14px;      
+  color: var(--mantine-color-secondary-9, #0F0F10);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.tab,
+.tab:focus,
+.tab:active,
+.tab[data-active="true"] {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+
+
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0px;            
+  right: 0px;           
+  bottom: -10px;        
+  height: 2px;         
+  background: transparent;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+.tab:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.tab[data-active="true"]::after {
+  background: var(--mantine-color-primary-7, #4263EB);
+  transform: scaleX(1);
+}
+

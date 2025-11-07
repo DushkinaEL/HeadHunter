@@ -1,14 +1,30 @@
-import { Title, Group, Box, Text, Divider,  } from '@mantine/core';
-import {  SearchBar, CityFilter , SkillsFilter,VacancyList, CustomPagination } from '../../components';
+import { Title, Group, Box, Text, Divider,   } from '@mantine/core';
+import {  SearchBar, SkillsFilter,VacancyList, CustomPagination, CityTabs} from '../../components';
 import { useVacancies } from '../../hooks/useVacancies';
 import styles from './HomePage.module.css';
 import { useEffect } from "react";
-import { useSearchParams } from 'react-router-dom';
+import {  useNavigation, useSearchParams } from 'react-router-dom';
 import {PageContainer} from '../../shared/';
 
+function buildSearchParams(obj: Record<string, string | string[] | undefined>) {
+  const sp = new URLSearchParams();
+  Object.entries(obj).forEach(([k, v]) => {
+    if (v == null) return;
+    if (Array.isArray(v)) {
+      const filtered = v.filter(Boolean);
+      if (filtered.length) sp.set(k, filtered.join(','));
+    } else {
+      const s = String(v).trim();
+      if (s !== '') sp.set(k, s);
+    }
+  });
+  return sp;
+}
 
 export  function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigation = useNavigation();
+  const isNavigating = navigation.state !== "idle";
 
   const {
     items,
@@ -21,6 +37,7 @@ export  function HomePage() {
     removeSkill,
     currentPage,
     setPage,
+    setSkills,
     totalPages,
     fetchVacancies,
   } = useVacancies();
@@ -33,19 +50,26 @@ export  function HomePage() {
     if (urlText !== filters.text) setText(urlText);
     if (urlArea !== filters.area) setArea(urlArea);
 
-    if (JSON.stringify(urlSkills) !== JSON.stringify(filters.skills)) {
-      filters.skills.forEach(s => removeSkill(s));
-      urlSkills.forEach(s => addSkill(s));
+    const currentSkills = filters.skills ?? [];
+    const skillsEqual = JSON.stringify(urlSkills) === JSON.stringify(currentSkills);
+    if (!skillsEqual) {
+      if (typeof setSkills === "function") {
+        setSkills(urlSkills);
+      } else {
+        currentSkills.forEach(s => removeSkill(s));
+        urlSkills.forEach(s => addSkill(s));
+      }
     }
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [searchParams]);
 
   useEffect(() => {
-    setSearchParams({
+    const params = buildSearchParams({
       text: filters.text,
       area: filters.area,
       skills: filters.skills.join(","),
     });
+    setSearchParams(params, { replace: true });
   }, [filters.text, filters.area, filters.skills, setSearchParams]);
 
   return (
@@ -61,7 +85,7 @@ export  function HomePage() {
           </Box>
           <SearchBar
             value={filters.text}
-            onChange={setText}
+            onChange={setText}    
             onSearch={fetchVacancies}
           />
         </Group>
@@ -73,28 +97,33 @@ export  function HomePage() {
               addSkill={addSkill}
               removeSkill={removeSkill}
             />
-            <Box className={styles.cityBox}>
-              <CityFilter
-                value={filters.area}
-                onChange={setArea}
-              />
             </Box>
+            <Box className={styles.contaIner}>
+              <Box className={styles.tabsRow }>
+            <CityTabs
+              value={filters.area}
+              onChange={setArea}
+              navigateOnChange={false} 
+            />
           </Box>
-          <Box className={styles.vacancyCol}>
+            <Box className={styles.vacancyCol}>
             <VacancyList
               vacancies={items}
               loading={loading}
               error={error}
             />
             <Box className={styles.paginationBox}>
+              {!loading && !isNavigating && totalPages > 1 && (
               <CustomPagination
                 page={currentPage}
                 total={totalPages}
                 onChange={setPage}
               />
+              )}
             </Box>
-          </Box>
-        </Box>
+            </Box>
+            </Box>
+            </Box>
         </PageContainer>
   );
 }
