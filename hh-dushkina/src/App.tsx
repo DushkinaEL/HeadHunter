@@ -9,7 +9,6 @@ import "@fontsource/open-sans/700.css";
 import { createHashRouter, redirect, RouterProvider } from 'react-router-dom';
 import { VacancyPage, HomePage, ErrorPage, TabCityLayout, VacanciesListPage, vacanciesLoader,  } from './page';
 
-const basename = import.meta.env.PROD ? '/HeadHunter' : '/';
 const routes = [
   {
     path: "/",
@@ -42,7 +41,7 @@ const routes = [
     element: <ErrorPage />,
   },
 ];
-const router = createHashRouter(routes, { basename }); 
+const router = createHashRouter(routes); 
 export default function App() {
   return (
     <MantineProvider theme={mantineTheme}>
