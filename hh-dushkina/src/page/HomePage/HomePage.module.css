@@ -1,15 +1,3 @@
-.root {
-  min-width: 100vw;
-  min-height: 100vh;
-  background: var(--mantine-color-secondary-1, #F8F9FB); 
-  padding-bottom: 84px;
-}
-
-.content {
-  max-width: 1100px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
 
 .headerRow {
   display: flex;
@@ -18,8 +6,6 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
-
-
 
 .title {
   font-weight: 700;
@@ -62,12 +48,20 @@ letter-spacing: 0%;
   max-width: 317px;
 }
 
-.cityBox {
-  margin-top: 20px;
+.contentInner {
+  padding: 0 var(--container-padding-desktop);
+  box-sizing: border-box;
+  width: 100%;
 }
 
+.tabsRow {
+  margin-bottom: 18px;
+  display: block;
+}
 .vacancyCol {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .paginationBox {

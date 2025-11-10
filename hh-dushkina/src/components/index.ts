@@ -5,3 +5,4 @@ export {SearchBar} from "./SearchBar/SearchBar";
 export {CustomPagination} from "./Pagination/Pagination";
 export {VacancyItem} from "./VacancyItem/VacancyItem";
 export {VacancyList} from "./VacancyList/VacancyList";
+export {CityTabs} from "./CityTabs/CityTabs";

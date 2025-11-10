@@ -9,3 +9,12 @@
 
 }
 
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  width: 50vw;
+  box-sizing: border-box;
+}
+

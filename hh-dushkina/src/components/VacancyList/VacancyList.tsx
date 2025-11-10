@@ -1,6 +1,6 @@
 import type { Vacancy } from '../../store/reducers/vacanciesTypes';
 import { VacancyItem } from '../VacancyItem/VacancyItem';
-import { Stack, Box } from '@mantine/core';
+import { Stack, Box, Loader } from '@mantine/core';
 import styles from './VacancyList.module.css';
 
 type Props = {
@@ -10,7 +10,9 @@ type Props = {
 };
 
 export function VacancyList({ vacancies, loading, error } : Props) {
-  if (loading) return <Box>Загрузка...</Box>;
+  if (loading) return (<Box className={styles.loaderWrapper}>
+        <Loader color="blue" size="lg" />
+      </Box>);
   if (error) return <Box className={styles.error}>{error}</Box>;
   if (!vacancies.length) return (
     <Box className={styles.empty}>

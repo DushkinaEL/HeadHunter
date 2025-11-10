@@ -1,0 +1,62 @@
+.wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card {
+  width: 710px;
+  min-height: 570px;
+  padding: 32px;
+  background: var(--mantine-color-secondary-0, #fff);
+  border-radius: 12px;
+  padding-bottom: 30px;
+}
+
+.cardInner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.subtitle {
+  margin-top: 18px;
+  font-weight: 400;
+  line-height: 34px;
+
+}
+
+.actions {
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 400;
+}
+.buttonToMain {
+    background: var(--mantine-color-primary-7, #4263EB);
+    width: 134px;
+    height: 42px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+}
+.buttonToMain:hover,
+.buttonToMain:focus {
+  background: var(--mantine-color-primary-8, #364FC7);
+}
+
+.media {
+  min-width: 640px;
+  height: 340px;
+  border-radius: 12px;
+}

@@ -6,6 +6,7 @@ import {
   addSkill,
   removeSkill,
   setPage,
+  setSkills,
 } from '../store/reducers/vacanciesSlice';
 import { useCallback, useEffect } from 'react';
 import { fetchVacancies } from '../store/reducers/vacanciesThunk';
@@ -15,19 +16,12 @@ export function useVacancies() {
   const dispatch = useDispatch<AppDispatch>(); 
   const vacancies = useSelector((state: RootState) => state.vacancies);
 
-
-  const { text, area, skills } = vacancies.filters;
-  const { currentPage } = vacancies;
-  const skillsDeps = JSON.stringify(skills);
-
-useEffect(() => {
-  dispatch(fetchVacancies());
-}, [text, area, skillsDeps, currentPage, dispatch]);
-
-  const fetchVacanciesManually = useCallback(() => {
+    useEffect(() => {
+    dispatch(fetchVacancies());
+  }, [vacancies.filters, vacancies.currentPage, dispatch]);
+    const fetchVacanciesManually = useCallback(() => {
     dispatch(fetchVacancies());
   }, [dispatch]);
-
   return {
     ...vacancies,
     setText: (text: string) => dispatch(setText(text)),
@@ -35,6 +29,7 @@ useEffect(() => {
     addSkill: (skill: string) => dispatch(addSkill(skill)),
     removeSkill: (skill: string) => dispatch(removeSkill(skill)),
     setPage: (page: number) => dispatch(setPage(page)),
+    setSkills: (newSkills: string[]) => dispatch(setSkills(newSkills)),
     fetchVacancies: fetchVacanciesManually,
   };
 }

@@ -6,6 +6,14 @@ export const store = configureStore({
     vacancies: vacanciesReducer,
   },
 });
+export const setupStore = () =>
+  configureStore({
+    reducer: {
+      vacancies: vacanciesReducer,
+    },
+  });
+
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof setupStore>;
