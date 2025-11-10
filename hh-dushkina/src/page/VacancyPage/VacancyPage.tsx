@@ -11,7 +11,6 @@ import {
 import type { Vacancy } from "../../store/reducers/vacanciesTypes";
 import {  VacancyItem } from "../../components";
 import styles from '../../shared/RespondButton/RespondButton.module.css';
-import {PageContainer} from "../../shared";
 import pageStyles from "./VacancyPage.module.css";
 
 
@@ -36,7 +35,7 @@ export function VacancyPage() {
       </Box>)
   if (!vacancy) return <Text ta="center" mt="xl">Вакансия не найдена</Text>;
   return (
-    <PageContainer>
+    <>
       <Container size='sm' mt={24}className={pageStyles.container}>
         <Stack gap={24} >
           <VacancyItem
@@ -66,6 +65,6 @@ export function VacancyPage() {
           </Card>
         </Stack>
         </Container>
-      </PageContainer>
+      </>
   );
 }

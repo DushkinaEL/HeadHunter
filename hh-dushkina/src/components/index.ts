@@ -6,3 +6,5 @@ export {CustomPagination} from "./Pagination/Pagination";
 export {VacancyItem} from "./VacancyItem/VacancyItem";
 export {VacancyList} from "./VacancyList/VacancyList";
 export {CityTabs} from "./CityTabs/CityTabs";
+export {CustomLink} from "./CustomLink/CustomLink";
+export {Layout} from "./Layout/Layout";

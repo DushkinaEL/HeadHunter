@@ -1,7 +1,6 @@
 
 import { useRouteError, isRouteErrorResponse, Link } from "react-router-dom";
 import { Box, Card, Text, Button, Container } from "@mantine/core";
-import {PageContainer} from "../../shared/containerPage/PageContainer";
 import catGif from "../../assets/sad-cat.gif"
 import styles from "./ErrorPage.module.css";
 
@@ -24,7 +23,7 @@ export function ErrorPage() {
   }
 
   return (
-    <PageContainer>
+
       <Container size="md" className={styles.wrapper}>
         <Card radius="md" className={styles.card}>
           <Box className={styles.cardInner}>
@@ -43,6 +42,5 @@ export function ErrorPage() {
           </Box>
         </Card>
       </Container>
-    </PageContainer>
   );
 }

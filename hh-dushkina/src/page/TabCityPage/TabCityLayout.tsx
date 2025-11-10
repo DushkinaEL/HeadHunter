@@ -1,7 +1,6 @@
 
 import { Outlet, useParams, useNavigate } from "react-router-dom";
 import { Tabs, Container, Box } from "@mantine/core";
-import {PageContainer} from "../../shared/containerPage/PageContainer";
 import styles from "./TabCityLayout.module.css";
 import { CITIES } from "../../components/CityTabs/typesCity";
 import { useMemo } from "react";
@@ -20,7 +19,7 @@ export  function TabCityLayout() {
   };
 
   return (
-    <PageContainer className={styles.root}>
+    <>
       <Container size="lg" className={styles.container}>
         <Box className={styles.tabsWrap}>
           <Tabs value={active} onChange={handleTabChange} variant="outline">
@@ -33,9 +32,8 @@ export  function TabCityLayout() {
             </Tabs.List>
           </Tabs>
         </Box>
-
         <Outlet />
       </Container>
-    </PageContainer>
+    </>
   );
 }

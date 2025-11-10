@@ -6,39 +6,32 @@ import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/500.css";
 import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
-import { createHashRouter, redirect, RouterProvider } from 'react-router-dom';
-import { VacancyPage, HomePage, ErrorPage, TabCityLayout, VacanciesListPage, vacanciesLoader,  } from './page';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { VacancyPage, HomePage, ErrorPage, TabCityLayout, VacanciesListPage, vacanciesLoader, AboutPage,  } from './page';
+import { Layout } from './components';
 
-const routes = [
+  const routes = [
   {
-    path: "/",
-    element: <HomePage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/vacancies",
-    element: <TabCityLayout />, 
+    element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, loader: async () => redirect("/vacancies/moscow") },
+      { index: true, element: <HomePage /> },
       {
-        path: ":city",
-        element: <VacanciesListPage />,
-        loader: vacanciesLoader,
+        path: 'vacancies',
+        element: <TabCityLayout />,
         errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <VacanciesListPage />, loader: vacanciesLoader },
+          { path: ':city', element: <VacanciesListPage />, loader: vacanciesLoader, errorElement: <ErrorPage /> },
+        ],
       },
+
+      { path: 'vacancy/:id', element: <VacancyPage />, errorElement: <ErrorPage /> },
+
+      { path: 'about', element: <AboutPage /> },
+
+      { path: '*', element: <ErrorPage /> },
     ],
-  },
-
-  {
-    path: "/vacancy/:id",
-    element: <VacancyPage />,
-    errorElement: <ErrorPage />,
-  },
-
-  {
-    path: "*",
-    element: <ErrorPage />,
   },
 ];
 const router = createHashRouter(routes); 

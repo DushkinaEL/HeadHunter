@@ -4,7 +4,6 @@ import { useVacancies } from '../../hooks/useVacancies';
 import styles from './HomePage.module.css';
 import { useEffect } from "react";
 import {  useNavigation, useSearchParams } from 'react-router-dom';
-import {PageContainer} from '../../shared/';
 
 function buildSearchParams(obj: Record<string, string | string[] | undefined>) {
   const sp = new URLSearchParams();
@@ -73,7 +72,7 @@ export  function HomePage() {
   }, [filters.text, filters.area, filters.skills, setSearchParams]);
 
   return (
-    <PageContainer>
+    <>
         <Group className={styles.headerRow}>
           <Box className={styles.titleBlock}>
             <Title order={2} className={styles.title}>
@@ -124,6 +123,6 @@ export  function HomePage() {
             </Box>
             </Box>
             </Box>
-        </PageContainer>
+        </>
   );
 }
