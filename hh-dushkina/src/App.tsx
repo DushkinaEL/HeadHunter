@@ -6,10 +6,11 @@ import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/500.css";
 import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
-import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
+import { createHashRouter, redirect, RouterProvider } from 'react-router-dom';
 import { VacancyPage, HomePage, ErrorPage, TabCityLayout, VacanciesListPage, vacanciesLoader,  } from './page';
 
-const router = createBrowserRouter([
+const basename = import.meta.env.PROD ? '/HeadHunter' : '/';
+const routes = [
   {
     path: "/",
     element: <HomePage />,
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/vacancies/:id",
+    path: "/vacancy/:id",
     element: <VacancyPage />,
     errorElement: <ErrorPage />,
   },
@@ -40,8 +41,8 @@ const router = createBrowserRouter([
     path: "*",
     element: <ErrorPage />,
   },
-]);
-
+];
+const router = createHashRouter(routes, { basename }); 
 export default function App() {
   return (
     <MantineProvider theme={mantineTheme}>

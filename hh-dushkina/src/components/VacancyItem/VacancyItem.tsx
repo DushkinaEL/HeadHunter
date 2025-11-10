@@ -51,7 +51,7 @@ export function VacancyItem({ vacancy,
   const navigate = useNavigate();
 
   const handleGoToVacancy = () => {
-    navigate(`/vacancies/${vacancy.id}`);
+    navigate(`/vacancy/${vacancy.id}`);
   };
 
   return (
