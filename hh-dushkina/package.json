@@ -11,8 +11,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "postbuild": "node ./scriptToErrorPage.js"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.2.7",
