@@ -13,10 +13,10 @@ export function CustomLink({ to, children, className = '', activeOverride, }: Pr
  const autoMatch = !!useMatch({ path: to as string, end: false });
   const isActive = typeof activeOverride === 'boolean' ? activeOverride : autoMatch;
   const cn = `${styles.link} ${isActive ? styles.active : ''} ${className}`.trim();
-  const style = isActive ? { color: '#0F0F10' } : undefined;
+
 
   return (
-    <Link to={to} className={cn} style={style}>
+    <Link to={to} className={cn} >
       {children}
     </Link>
   );
